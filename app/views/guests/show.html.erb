@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Full name:</strong>
+  <%= @guest.full_name %>
+</p>
+
+<strong>Wedding attending:</strong>
+<% @guest.weddings.each do |wedding| %>
+	<p>ID: <%= link_to wedding.id, wedding_path(wedding.id) %></p>
+	<p>Couple: <%= wedding.bride_name %> & <%= wedding.groom_name %></p>      
+<% end %>
+
+<p>
+  <strong>Relationship:</strong>
+  <%= @guest.relationship %>
+</p>
+
+<p>
+  <strong>Greeting:</strong>
+  <%= @guest.greeting %>
+</p>
+
+<p>
+  <strong>Is attending:</strong>
+  <%= @guest.is_attending %>
+</p>
+
+<p>
+  <strong>Number of People</strong>
+  <%= @guest.number_people %>
+</p>
+
+<%= link_to 'Edit', edit_guest_path(@guest),  class: 'btn btn-primary btn-xs' %> |
+<%= link_to 'Back', guests_path,  class: 'btn btn-primary btn-xs' %>

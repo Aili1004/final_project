@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Weddings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Bride name</th>
+      <th>Groom name</th>
+      <th>Date</th>
+      <th>Location</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @weddings.each do |wedding| %>
+      <tr>
+        <td><%= wedding.bride_name %></td>
+        <td><%= wedding.groom_name %></td>
+        <td><%= wedding.date %></td>
+        <td><%= wedding.location %></td>
+        <td><%= link_to 'Show', wedding, class: 'btn btn-primary btn-xs' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+
+<%= link_to 'New Wedding', new_wedding_path, class: 'btn btn-success' %>

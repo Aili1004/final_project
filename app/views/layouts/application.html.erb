@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>WeRGettingmarried</title>
+		<%= include_gon %>
+		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+		<%= csrf_meta_tags %>
+		<script src="https://maps.googleapis.com/maps/api/js"></script>
+		<script src="http://code.createjs.com/easeljs-0.7.0.min.js"></script>
+		<link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Dancing+Script' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Anton' rel='stylesheet' type='text/css'>
+	</head>
+
+	<body>
+
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="navbar-header">
+				<%= link_to 'Home', root_path, class: 'navbar-brand' %>
+				<% if @current_user.present? %>
+					<%= link_to 'Weddings', weddings_path, class: 'navbar-brand' %>
+					<%= link_to 'Images', images_path, class: 'navbar-brand' %>
+					<%= link_to 'Guests', guests_path, class: 'navbar-brand' %>
+					<%= link_to 'Edit profile', edit_user_path, class: 'navbar-brand' %>
+					<%= link_to "Logout #{ @current_user.name }", login_path, :method => 'delete', :data => { :confirm => "Are you sure you wish to logout?"}, class: 'navbar-brand' %>
+				<% else %>
+					<%= link_to 'User Login', login_path, class: 'navbar-brand' %>
+					<%= link_to 'New User', new_user_path, class: 'navbar-brand' %>
+				<% end %>
+			</div>
+		</nav>
+	
+		<div class="container">	
+			<%= yield %>
+			
+		</div>
+		
+	</body>
+</html>
+
+<head>
+  <title>WeRGettingmarried</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<%= yield %>
+
+</body>
+</html>

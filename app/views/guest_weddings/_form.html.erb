@@ -1,0 +1,30 @@
+<%= form_for(@guest_wedding) do |f| %>
+  <% if @guest_wedding.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@guest_wedding.errors.count, "error") %> prohibited this guest_wedding from being saved:</h2>
+
+      <ul>
+      <% @guest_wedding.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <p><label>Wedding</label></p>
+
+    <p><%= f.select :wedding_id, Wedding.all.map { |wedding| [wedding.bride_name, wedding.id] }, :include_blank => true, :placeholder => "Select the wedding couples" %></p>
+  </div>
+
+    <div class="field">
+    <p><label>Guest</label></p>
+
+    <p><%= f.select :guest_id, Guest.all.map { |guest| [guest.full_name, guest.id] }, :include_blank => true, :placeholder => "Select the guest" %></p>
+  </div>
+
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

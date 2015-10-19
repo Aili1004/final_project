@@ -1,0 +1,44 @@
+<%= form_for [@wedding, @guest] do |f| %>
+  <% if @guest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@guest.errors.count, "error") %> prohibited this guest from being saved:</h2>
+
+      <ul>
+      <% @guest.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :full_name %><br>
+    <%= f.text_area :full_name %>
+  </div>
+  <div class="field">
+    <%= f.label :relationship %><br>
+    <%= f.text_area :relationship %>
+  </div>
+  <div class="field">
+    <%= f.label :greeting %><br>
+    <%= f.text_area :greeting %>
+  </div>
+  <div class="field">
+    <%= f.label :is_attending %><br>
+    <%= f.check_box :is_attending %>
+  </div>
+
+  <div class="field">
+    <%= f.label :number_people %><br>
+    <%= f.text_field :number_people %>
+  </div>  
+
+  <% unless @wedding.nil? %>
+    <h5>Wedding attending: </h5>
+    <%= @wedding.bride_name %> & <%= @wedding.groom_name %>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,30 @@
+
+<%= form_for (@image), :html => { :multipart => true }  do |f| %>
+
+  <% if @image.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
+
+      <ul>
+      <% @image.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :file %>
+    <%= f.cl_image_upload :file %>
+  </div>
+
+  <div class="field">
+    <label>Couples</label>
+
+    <%= f.select :wedding_id, Wedding.all.map { |wedding| [wedding.bride_name, wedding.id] }, :include_blank => true, :placeholder => "Select the wedding couples" %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

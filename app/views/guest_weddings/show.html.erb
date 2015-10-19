@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+	<strong>Wedding ID:</strong>
+	<%= @guest_wedding.wedding_id %>
+</p>
+
+<p>
+	<strong>Bride:</strong>
+	<%= @guest_wedding.wedding.bride_name %>
+</p>
+
+<p>
+	<strong>Groom:</strong>
+	<%= @guest_wedding.wedding.groom_name %>
+</p>
+
+
+<p>
+	<strong>Guest ID:</strong>
+	<%= @guest_wedding.guest_id %>
+</p>
+
+<p>
+	<% unless @guest_wedding.guest.nil? %>
+		<strong>Guest Name:</strong>
+		<%= @guest_wedding.guest.full_name %>
+	<% end %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_guest_wedding_path(@guest_wedding) %> |
+<%= link_to 'Back', guest_weddings_path %>

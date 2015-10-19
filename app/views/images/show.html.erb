@@ -1,0 +1,23 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Url:</strong>
+  <%= image_tag @image.url %>
+</p>
+
+<p>
+  <strong>Wedding ID:</strong>
+  <%= @image.wedding_id %>
+</p>
+
+<p>
+	<% unless @image.wedding_id.nil? %>
+		<strong>Couples</strong>
+		<%= @image.wedding.bride_name %>
+	 	<strong>&</strong>
+		<%= @image.wedding.groom_name %>
+	<% end %>
+</p>
+
+<%= link_to 'Edit', edit_image_path(@image), class: 'btn btn-primary btn-xs' %> |
+<%= link_to 'Back', images_path, class: 'btn btn-primary btn-xs' %>
