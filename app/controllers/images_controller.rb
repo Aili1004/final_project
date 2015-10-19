@@ -25,7 +25,6 @@ class ImagesController < ApplicationController
   # POST /images
   # POST /images.json
   def create
-    binding.pry
     image_details = image_params
 
     if params[:file]

@@ -3,7 +3,7 @@ class ExampleMailer < ActionMailer::Base
 
 	def sample_email(user)
 		@user = user
-		@url = 'http://localhost:3000/weddings/6/guests/new'
+		@url = 'http://localhost:3000/weddings/2/guests/new'
 		mail(to: @user.email_address, subject: 'Wedding Invitation')
 	end
 end
