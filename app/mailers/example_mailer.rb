@@ -7,3 +7,5 @@ class ExampleMailer < ActionMailer::Base
 		mail(to: @user.email_address, subject: 'Wedding Invitation')
 	end
 end
+
+
