@@ -3,7 +3,7 @@ class ExampleMailer < ActionMailer::Base
 
 	def sample_email(user)
 		@user = user
-		@url = 'https://limitless-tor-6126.herokuapp.com/weddings/2/guests/new'
+		@url = 'https://we-r-getting-married.herokuapp.com/weddings/2/guests/new'
 		mail(to: @user.email_address, subject: 'Wedding Invitation')
 	end
 end
