@@ -5,6 +5,7 @@
 	display: block;
 	background-image: image-url('header-image.png');
 	background-repeat: no-repeat;
+  text-align: center;
 }
 
 .header-text {
@@ -19,17 +20,18 @@ button.btn-success {
 }
 
 
-
 .map-canvas {
 	height: 400px;
 	width: 400px;
   margin: 0 auto;
+  text-align: center;
 }
 
 .couples {
 	margin-bottom: 20px;
 	font-family: 'Lobster', cursive;
 	font-size: 20px;
+  text-align: center;
 }
 
 .wedding-date {
@@ -41,19 +43,62 @@ button.btn-success {
 	font-family: 'Anton', sans-serif;
 	background: -webkit-repeating-linear-gradient(145deg, #222, #222 10px, #333 10px, #333 20px);
 	background: repeating-linear-gradient(-55deg, #222, #222 10px, #333 10px, #333 20px);
+  text-align: center;
+}
+
+
+.heart-shape{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    transform: rotate(45deg);
+    background-color: rgba(255, 0, 0, 1);
+    margin-top: -14em;
+    margin-left: 15em;
+}
+
+.heart-shape:before,
+.heart-shape:after{
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    content: '';
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;
+    background-color: rgba(255, 0, 0, 1);
+}
+.heart-shape:before{
+    bottom: 0px;
+    left: -77px;
+}
+.heart-shape:after{
+    top: -77px;
+    right: 0px;
 }
 
 .love-story {
 	width: 200px;
-  height: 250px;
+  height: 140px;
 	margin-left: 10em;
-	margin-top: 20px;
-	-webkit-transform: rotate(-20deg);
+	margin-top: -11em;
 	border-radius: 10px;
 	font-family: 'Dancing Script', cursive;
 	font-size: 20px;
 	position: absolute;
   overflow-y: scroll;
+  color: white;
+}
+
+#myCanvas {
+  position: absolute;
+  margin-right: 20em;
+
 }
 
 
@@ -122,7 +167,7 @@ button.btn-success {
 
 .location {
 	margin-top: 50px;
-  /*position: absolute;*/
+  text-align: center;
 }
 
 /* gallaries */
@@ -132,6 +177,7 @@ button.btn-success {
   max-width:800px; /* Set your image width */
   height:300px; /* Set your image height */
   margin-top: 20px;
+  margin-left: 50%;
 }
 
 #myGallery img{
@@ -149,6 +195,9 @@ button.btn-success {
   display:block;
 }
 
+.user-name {
+  text-align: center;
+}
 
 
 
@@ -282,9 +331,9 @@ button.btn-success {
   }
 }
 
-body {
+/*body {
   text-align: center;
-}
+}*/
 
 /* Styles for old versions of IE */
 .heartbeat {

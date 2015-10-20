@@ -33,9 +33,9 @@
   <%= @wedding.groom_name %>
 </div>
 
-<div class="love-story">
-  <%= @wedding.love_story %>
-</div>
+
+<canvas id="myCanvas" width="578" height="250"></canvas>  
+
 
 
 <div id="myGallery">
@@ -49,47 +49,57 @@
 </div>
 
 
+<div class="heart-shape">
+  Hello World!
+</div>
+
+<div class="love-story">
+  <strong>Love Story: </strong>
+  <%= @wedding.love_story %>
+</div>
+
+
+
 <% if @current_user.present? %>
   <% unless @wedding.user.nil? %>
     <% if @current_user.name == @wedding.user.name %>
       
       <%= link_to 'Invite Guests', new_wedding_email_path(@wedding), class: 'invite-guests' %>
       
-      <button id="show-guests">Click here to see who is coming</button>
-
-      <div class="guest-lists">
-        <% @wedding.guests.each do |guest| %>
-          <% unless guest.nil? %>
-            <p>
-              <strong><%= link_to guest.full_name, edit_wedding_guest_path(@wedding, guest) %></strong>
-              ( 
-              <%= guest.relationship %> 
-              )
-              + 
-              <%= (guest.number_people.to_i) %> 
-              : 
-              <%= guest.greeting %>
-              <%= link_to 'Remove Registration', guest_path(guest), method: :delete, data: { confirm: "Are you sure you don't want to come?" }, class: 'btn btn-primary btn-xs' %>
-              
-            </p>
-          <% end %>
-        <% end %>
-      </div>
     <% end %>
   <% end %>
 <% end %>
 
+<button id="show-guests">Click here to see who is coming</button>
+
+<div class="guest-lists">
+  <% @wedding.guests.each do |guest| %>
+    <% unless guest.nil? %>
+      <p>
+        <strong><%= link_to guest.full_name, edit_wedding_guest_path(@wedding, guest) %></strong>
+        ( 
+        <%= guest.relationship %> 
+        )
+        + 
+        <%= (guest.number_people.to_i) %> 
+        : 
+        <%= guest.greeting %>
+        <%= link_to 'Remove Registration', guest_path(guest), method: :delete, data: { confirm: "Are you sure you don't want to come?" }, class: 'btn btn-primary btn-xs' %>
+      </p>
+    <% end %>
+  <% end %>
+</div>
 
 <div class="location">
-  <strong>Location:</strong>
-  <%= @wedding.location %>
   <div class="map-canvas"></div>
 </div>
 
 
 <% unless @wedding.user.nil? %>
-  <p><strong>User: </strong>
-  <%= @wedding.user.name %></p>
+  <div class="user-name">
+    <p><strong>User: </strong>
+    <%= @wedding.user.name %></p>
+  </div>
 <% end %>
 
 
