@@ -32,7 +32,7 @@ class EmailsController < ApplicationController
 
     respond_to do |format|
       if @email.save
-        ExampleMailer.sample_email(@email).deliver
+        ExampleMailer.sample_email(@email, wedding.id).deliver
         
         format.html { redirect_to wedding_email_path(wedding, @email), notice: 'Email was successfully created.' }
         format.json { render :show, status: :created, location: @email }

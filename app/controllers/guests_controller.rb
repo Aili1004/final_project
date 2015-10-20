@@ -28,7 +28,7 @@ class GuestsController < ApplicationController
     @guest = Guest.new(guest_params)
 
     wedding = Wedding.find params["wedding_id"]
-    wedding.guests.create guest_params
+    @guest.weddings << wedding
 
     respond_to do |format|
       if @guest.save
