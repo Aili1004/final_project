@@ -1,0 +1,13 @@
+.btn-user-edit-back {
+	margin-top: 5px;
+	width: 105px;
+	height: 25px;
+	display: inline-block;
+	text-align: center;
+	background-color: #D8D8D8;
+	border: 1px solid grey;
+}
+
+.btn-user-edit-back:hover {
+  background-color: #D8D8D8;
+}

@@ -14,15 +14,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :file %>
-    <%= f.cl_image_upload :file %>
-  </div>
-
-  <div class="field">
     <% unless @wedding.nil? %>
       <h5>Wedding: </h5>
       <%= @wedding.bride_name %> & <%= @wedding.groom_name %>
     <% end %>
+  </div>
+
+  <div class="file-upload">
+    <%= f.cl_image_upload :file %>
   </div>
 
   <div class="actions">

@@ -44,8 +44,14 @@ class GuestsController < ApplicationController
   # PATCH/PUT /guests/1
   # PATCH/PUT /guests/1.json
   def update
+
+    # if @guest.is_attending == false
+    #   @guest.destroy
+    # end
+
     respond_to do |format|
       if @guest.update(guest_params)
+
         format.html { redirect_to @guest, notice: 'Guest was successfully updated.' }
         format.json { render :show, status: :ok, location: @guest }
       else
@@ -58,6 +64,12 @@ class GuestsController < ApplicationController
   # DELETE /guests/1
   # DELETE /guests/1.json
   def destroy
+    # @guest.destroy
+
+    # if @guest.is_attending == false
+    #   @guest.destroy
+    # end
+
     @guest.destroy
     respond_to do |format|
       format.html { redirect_to guests_url, notice: 'Guest was successfully destroyed.' }

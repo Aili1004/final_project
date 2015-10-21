@@ -32,8 +32,10 @@
 			<%= f.password_field :password_confirmation %>
 		</p>
 		
-		<div class="button">
+		<div class="edit-user">
 			<%= f.submit %>
 		</div>
+
+	<%= link_to 'Back', root_path, class: 'btn-user-edit-back' %>
 	<% end %>
 </div>

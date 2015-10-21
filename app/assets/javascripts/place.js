@@ -1,3 +1,4 @@
+var map;
 
 $(document).ready(function() {
 
@@ -22,7 +23,7 @@ $(document).ready(function() {
 				mapTypeId: google.maps.MapTypeId.ROADMAP
 			};
 
-			var map = new google.maps.Map(mapCanvas, mapOptions);
+			map = new google.maps.Map(mapCanvas, mapOptions);
 
 
 			marker = new google.maps.Marker({
@@ -40,6 +41,8 @@ $(document).ready(function() {
 			});
 		} 
 	});
+
+
 });
 
  	

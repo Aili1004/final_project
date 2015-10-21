@@ -1,31 +1,29 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Images</h1>
+<h1>Gallery</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Url</th>
-      <th>Wedding</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @images.each do |image| %>
-      <% if image.wedding_id == @wedding.id %>
-        <tr>
-          <td><%= image.url %></td>
-          <td><%= image.wedding_id %></td>
-          <td><%= link_to 'Show', wedding_image_path(@wedding, image), class: 'btn btn-primary btn-xs' %></td>
-          <td><%= link_to 'Edit', edit_wedding_image_path(@wedding, image), class: 'btn btn-primary btn-xs' %></td>
-          <td><%= link_to 'Destroy', wedding_image_path(@wedding, image), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %></td>
-        </tr>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
-
+<h5><%= @wedding.bride_name %> & <%= @wedding.groom_name %></h5>
 <br>
 
-<%= link_to 'New Image', new_wedding_image_path(@wedding), class: 'btn btn-success' %>
+
+<% @images.each do |image| %>
+
+  		<%= link_to(image_tag(image.url, class: "image-index"), wedding_image_path(@wedding, image)) %>
+
+<% end %>
+
+
+
+<% if @current_user.present? %>
+  <% unless @wedding.user.nil? %>
+    <% if @current_user.name == @wedding.user.name %>
+      <%= link_to 'New Image', new_wedding_image_path(@wedding), class: 'btn-image-index' %>
+      <%= link_to 'Back', wedding_path(@wedding), class: 'btn-image-index-back'  %>
+    <% end %>
+  <% end %>
+ <% else %>
+    <p><%= link_to 'Back', wedding_path(@wedding), class: 'btn-image-index-back2' %></p>
+<% end %>
+
+
+

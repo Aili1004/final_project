@@ -39,6 +39,7 @@
   -moz-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
   box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
 	text-align: center;
+  display: none;
 	
 	-webkit-transition: all .1s ease;
 	-moz-transition: all .1s ease;
@@ -47,18 +48,87 @@
 	transition: all .1s ease;
 }
 
-#show-guests:active {
-    -webkit-box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
-    -moz-box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
-    box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
-    position: relative;
-    top: 6px;
-
-}
-
 .guest-lists {
 	text-align: left;
 	background-color: #FFFFCC;
 	height: 80px;
 	overflow-y: scroll;
+  display: none;
 }
+
+
+.view-all-guests {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  text-align: center;
+  line-height: 100px;
+  margin-left: 35em;
+  margin-top: -10em;
+  background-color: #9999FF;
+  opacity: 0.8;
+  border-radius: 100%;
+  border: 3px solid #FF3366;
+  font-family: 'Francois One', sans-serif;
+}
+
+
+.view-all-guests:hover {
+  cursor: pointer;
+  background-color: pink;
+  height: 110px;
+  width: 110px;
+  text-align: center;
+  line-height: 110px;
+   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3), inset 0px 2px 5px rgba(0, 0, 0, 0.3), 0 0 28px 6px rgba(255, 174, 0, 0.8);
+  -moz-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3), inset 0px 2px 5px rgba(0, 0, 0, 0.3), 0 0 28px 6px rgba(255, 174, 0, 0.8);
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3), inset 0px 2px 5px rgba(0, 0, 0, 0.3), 0 0 28px 6px rgba(255, 174, 0, 0.8);   
+}
+
+
+
+.show-guest-list {
+  position: absolute;
+  display: block;
+  text-align: center;
+  width: 25em;
+  height: 15em;
+  overflow-y: scroll;
+  margin-top: -27em;
+  margin-left: 26em;
+  opacity: 0.9;
+  border-radius: 2em;
+  z-index: 100;
+}
+
+
+.invite-guest-back {
+  margin-left: 37em;
+  width: 105px;
+  height: 25px;
+  display: inline-block;
+  text-align: center;
+  background-color: #D8D8D8;
+  border: 1px solid grey;
+}
+.invite-guest-back:hover {
+  background-color: #D8D8D8;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

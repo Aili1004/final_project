@@ -77,10 +77,11 @@ class ImagesController < ApplicationController
   # DELETE /images/1
   # DELETE /images/1.json
   def destroy
+    # @wedding = Wedding.find params[:wedding_id]
     @image.destroy
 
     respond_to do |format|
-      format.html { redirect_to wedding_images_path(@image.wedding_id), notice: 'Image was successfully destroyed.' }
+      format.html { redirect_to wedding_images_path(params[:wedding_id]), notice: 'Image was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

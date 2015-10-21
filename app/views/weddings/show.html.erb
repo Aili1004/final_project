@@ -40,9 +40,6 @@
   <%= @wedding.groom_name %>
 </div>
 
-
-<!-- <canvas id="myCanvas" width="578" height="250"></canvas>   -->
-
 <div id="myGallery">
    <% @wedding.images.each do |img| %>
     <% if img == @wedding.images.first %>
@@ -74,49 +71,51 @@
       <div class="line3"></div>
       <div class="line4"></div>
 
-      <%= link_to 'Weddings', weddings_path, class: 'new-weddings' %>
+      <div class="new-weddings">All Guests</div>
 
-        <%= link_to 'Images', wedding_images_path(@wedding), class: 'new-images' %>
-      <%= link_to 'Guests', wedding_guests_path(@wedding), class: 'new-guests' %>
+      <%= link_to 'Images', wedding_images_path(@wedding), class: 'new-images' %>
+      <%= link_to 'Invite Guests', new_wedding_email_path(@wedding), class: 'new-guests' %>
 
       <%= link_to 'Edit profile', edit_user_path, class: 'new-edit-profile' %>
       <%= link_to "Logout", login_path, :method => 'delete', :data => { :confirm => "Are you sure you wish to logout?"}, class: 'new-user-logout' %>
     <% end %>
   <% end %>
+
+<% else %> 
+  <div class="view-all-guests">View Guests</div>
+  <div class="show-guest-list"></div>
+  <div class="view-location">View Location</div>
+  <%= link_to 'Gallery', wedding_images_path(@wedding), class: "view-gallery" %>
 <% end %>
-
-
 
 
 <% if @current_user.present? %>
   <% unless @wedding.user.nil? %>
     <% if @current_user.name == @wedding.user.name %>
       
-      <%= link_to 'Invite Guests', new_wedding_email_path(@wedding), class: 'invite-guests' %>
-      
+     <div id="show-guests">Guests List</div>
+
+      <div class="guest-lists">
+        <% @wedding.guests.each do |guest| %>
+          <% unless guest.nil? %>
+            <p>
+              <strong><%= link_to guest.full_name, edit_wedding_guest_path(@wedding, guest) %></strong>
+              ( 
+              <%= guest.relationship %> 
+              )
+              + 
+              <%= (guest.number_people.to_i) %> 
+              : 
+              <%= guest.greeting %>
+            </p>
+          <% end %>
+        <% end %>
+      </div>
+
+
     <% end %>
   <% end %>
 <% end %>
-
-<button id="show-guests">Click here to see who is coming</button>
-
-<div class="guest-lists">
-  <% @wedding.guests.each do |guest| %>
-    <% unless guest.nil? %>
-      <p>
-        <strong><%= link_to guest.full_name, edit_wedding_guest_path(@wedding, guest) %></strong>
-        ( 
-        <%= guest.relationship %> 
-        )
-        + 
-        <%= (guest.number_people.to_i) %> 
-        : 
-        <%= guest.greeting %>
-        <%= link_to 'Remove Registration', guest_path(guest), method: :delete, data: { confirm: "Are you sure you don't want to come?" }, class: 'btn btn-primary btn-xs' %>
-      </p>
-    <% end %>
-  <% end %>
-</div>
 
 
 <div class="location">
@@ -124,24 +123,11 @@
   <div class="map-canvas"></div>
 </div>
 
-
-
-
-<% unless @wedding.user.nil? %>
-  <div class="user-name">
-    <p><strong>User: </strong>
-    <%= @wedding.user.name %></p>
-  </div>
-<% end %>
-
-
-<%= link_to 'Back', weddings_path,  class: 'btn btn-primary btn-xs' %>
-
 <% if @current_user.present? %>
   <% unless @wedding.user.nil? %>
     <% if @current_user.name == @wedding.user.name %>
-      <%= link_to "Update", edit_wedding_path(@wedding), class: 'btn btn-primary btn-xs' %> 
-      <%= link_to 'Destroy', wedding_path(@wedding), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %>
+      <%= link_to "Update", edit_wedding_path(@wedding), class: 'large blue button radius' %> 
+      <%= link_to 'Destroy', wedding_path(@wedding), method: :delete, data: { confirm: 'Are you sure?' }, class: 'large blue button radius' %>
     <% end %>
   <% end %>
 <% end %>

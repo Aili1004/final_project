@@ -1,23 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Url:</strong>
-  <%= image_tag @image.url %>
+  <%= image_tag @image.url, class: "image-show" %>
 </p>
 
-<p>
-  <strong>Wedding ID:</strong>
-  <%= @image.wedding_id %>
-</p>
+<% if @current_user.present? %>
+	<% unless @wedding.user.nil? %>
+		<% if @current_user.name == @wedding.user.name %>
 
-<p>
-	<% unless @image.wedding_id.nil? %>
-		<strong>Couples</strong>
-		<%= @image.wedding.bride_name %>
-	 	<strong>&</strong>
-		<%= @image.wedding.groom_name %>
+			<%= link_to 'Edit', edit_wedding_image_path(@wedding, @image), class: 'large blue button radius' %>
+			<%= link_to 'Destroy', wedding_image_path(@wedding, @image), method: :delete, data: { confirm: 'Are you sure?' }, class: 'large blue button radius' %>
+			<%= link_to 'Back', wedding_images_path(@wedding), class: 'large blue button radius' %>
+
+		<% end %>
 	<% end %>
-</p>
 
-<%= link_to 'Edit', edit_wedding_image_path(@wedding, @image), class: 'btn btn-primary btn-xs' %> |
-<%= link_to 'Back', wedding_images_path(@wedding), class: 'btn btn-primary btn-xs' %>
+<% else %>
+	<%= link_to 'Back', wedding_images_path(@wedding), class: 'btn-image-index-back3' %>
+<% end %>

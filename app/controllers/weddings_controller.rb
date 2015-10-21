@@ -13,6 +13,12 @@ class WeddingsController < ApplicationController
     # @guest_wedding = GuestWedding.find params[:id]
     @wedding = Wedding.find(params[:id])
     gon.address = @wedding.location
+    gon.guests = []
+
+    @wedding.guests.each do |guest|
+      gon.guests << guest.full_name
+    end
+
   end
 
   # GET /weddings/new

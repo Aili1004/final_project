@@ -11,6 +11,11 @@
     </div>
   <% end %>
 
+  <% unless @wedding.nil? %>
+    <h5>Wedding attending: </h5>
+    <%= @wedding.bride_name %> & <%= @wedding.groom_name %>
+  <% end %>
+
   <div class="field">
     <%= f.label :full_name %><br>
     <%= f.text_area :full_name %>
@@ -30,14 +35,11 @@
   </div>
 
   <div class="field">
-    <%= f.label :number_people %><br>
+    <!-- <%= f.label :number_people %> -->
+    <label>How many extra people would you like to bring?</label>
+    <br>
     <%= f.text_field :number_people %>
   </div>  
-
-  <% unless @wedding.nil? %>
-    <h5>Wedding attending: </h5>
-    <%= @wedding.bride_name %> & <%= @wedding.groom_name %>
-  <% end %>
 
   <div class="actions">
     <%= f.submit %>
