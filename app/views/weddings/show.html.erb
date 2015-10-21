@@ -97,7 +97,7 @@
 
       <div class="guest-lists">
         <% @wedding.guests.each do |guest| %>
-          <% unless guest.nil? %>
+          <% unless guest.nil? || guest.is_attending == false %>
             <p>
               <strong><%= link_to guest.full_name, edit_wedding_guest_path(@wedding, guest) %></strong>
               ( 
