@@ -1,5 +1,5 @@
 
-<%= form_for (@image), :html => { :multipart => true }  do |f| %>
+<%= form_for [@wedding, @image], :html => { :multipart => true }  do |f| %>
 
   <% if @image.errors.any? %>
     <div id="error_explanation">
@@ -19,9 +19,10 @@
   </div>
 
   <div class="field">
-    <label>Couples</label>
-
-    <%= f.select :wedding_id, Wedding.all.map { |wedding| [wedding.bride_name, wedding.id] }, :include_blank => true, :placeholder => "Select the wedding couples" %>
+    <% unless @wedding.nil? %>
+      <h5>Wedding: </h5>
+      <%= @wedding.bride_name %> & <%= @wedding.groom_name %>
+    <% end %>
   </div>
 
   <div class="actions">

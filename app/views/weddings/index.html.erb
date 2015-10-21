@@ -27,4 +27,10 @@
 </table>
 <br>
 
-<%= link_to 'New Wedding', new_wedding_path, class: 'btn btn-success' %>
+
+<% if @current_user.present? %>
+  <%= link_to 'New Wedding', new_wedding_path, class: 'btn btn-success' %>
+<% else %>
+  <%= link_to 'User Login', login_path, class: 'btn btn-success' %>
+  <%= link_to 'New User', new_user_path, class: 'btn btn-success' %>  
+<% end %>

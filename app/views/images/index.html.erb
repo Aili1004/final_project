@@ -13,17 +13,19 @@
 
   <tbody>
     <% @images.each do |image| %>
-      <tr>
-        <td><%= image.url %></td>
-        <td><%= image.wedding_id %></td>
-        <td><%= link_to 'Show', image_path(image), class: 'btn btn-primary btn-xs' %></td>
-        <td><%= link_to 'Edit', edit_image_path(image), class: 'btn btn-primary btn-xs' %></td>
-        <td><%= link_to 'Destroy', image_path(image), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %></td>
-      </tr>
+      <% if image.wedding_id == @wedding.id %>
+        <tr>
+          <td><%= image.url %></td>
+          <td><%= image.wedding_id %></td>
+          <td><%= link_to 'Show', wedding_image_path(@wedding, image), class: 'btn btn-primary btn-xs' %></td>
+          <td><%= link_to 'Edit', edit_wedding_image_path(@wedding, image), class: 'btn btn-primary btn-xs' %></td>
+          <td><%= link_to 'Destroy', wedding_image_path(@wedding, image), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-primary btn-xs' %></td>
+        </tr>
+      <% end %>
     <% end %>
   </tbody>
 </table>
 
 <br>
 
-<%= link_to 'New Image', new_image_path, class: 'btn btn-success' %>
+<%= link_to 'New Image', new_wedding_image_path(@wedding), class: 'btn btn-success' %>

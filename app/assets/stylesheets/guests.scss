@@ -1,3 +1,64 @@
-// Place all the styles related to the Guests controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.num-guest {
+	text-align: center;
+	line-height: 100px;
+	margin-left: 90%;
+	background-color: #FF0066;
+	width: 100px;
+	height: 100px;
+	border-radius: 50%;
+	color: white;
+}
+
+
+.invite-guests {
+  width: 100%;
+  background-color: blue;
+  color: white;
+  font-size: 20px;
+  display: block;
+  text-align: center;
+}
+
+
+#show-guests {
+	margin-top: 30px;
+	width: 100%;
+	color: rgba(255,255,255,1);
+  text-decoration: none;
+  background-color: #FF6699;
+  font-family: 'Yanone Kaffeesatz';
+  font-weight: 700;
+  font-size: 20px;
+  display: block;
+  padding: 4px;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  -webkit-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+  -moz-box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+  box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
+	text-align: center;
+	
+	-webkit-transition: all .1s ease;
+	-moz-transition: all .1s ease;
+	-ms-transition: all .1s ease;
+	-o-transition: all .1s ease;
+	transition: all .1s ease;
+}
+
+#show-guests:active {
+    -webkit-box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
+    -moz-box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
+    box-shadow: 0px 3px 0px rgba(219,31,5,1), 0px 3px 6px rgba(0,0,0,.9);
+    position: relative;
+    top: 6px;
+
+}
+
+.guest-lists {
+	text-align: left;
+	background-color: #FFFFCC;
+	height: 80px;
+	overflow-y: scroll;
+}

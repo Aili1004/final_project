@@ -1,4 +1,11 @@
 
+<% if @current_user.present? %>
+  <div class="logged-in-user">
+    Welcome <%= @current_user.name %> !
+  </div>
+<% end %>
+
+
 <div class="header">
   <div class="header-text">
     We are getting married!
@@ -34,9 +41,7 @@
 </div>
 
 
-<canvas id="myCanvas" width="578" height="250"></canvas>  
-
-
+<!-- <canvas id="myCanvas" width="578" height="250"></canvas>   -->
 
 <div id="myGallery">
    <% @wedding.images.each do |img| %>
@@ -49,14 +54,37 @@
 </div>
 
 
-<div class="heart-shape">
-  Hello World!
-</div>
+<div class="heart-shape1"></div>
+<div class="heart-shape2"></div>
+<div class="heart-shape3"></div>
+<div class="heart-shape4"></div>
 
-<div class="love-story">
-  <strong>Love Story: </strong>
+<div class="love-story">  
   <%= @wedding.love_story %>
 </div>
+
+
+<% if @current_user.present? %>
+  <% unless @wedding.user.nil? %>
+    <% if @current_user.name == @wedding.user.name %>
+      
+      <div class="line0"></div>
+      <div class="line1"></div>
+      <div class="line2"></div>
+      <div class="line3"></div>
+      <div class="line4"></div>
+
+      <%= link_to 'Weddings', weddings_path, class: 'new-weddings' %>
+
+        <%= link_to 'Images', wedding_images_path(@wedding), class: 'new-images' %>
+      <%= link_to 'Guests', wedding_guests_path(@wedding), class: 'new-guests' %>
+
+      <%= link_to 'Edit profile', edit_user_path, class: 'new-edit-profile' %>
+      <%= link_to "Logout", login_path, :method => 'delete', :data => { :confirm => "Are you sure you wish to logout?"}, class: 'new-user-logout' %>
+    <% end %>
+  <% end %>
+<% end %>
+
 
 
 
@@ -90,9 +118,13 @@
   <% end %>
 </div>
 
+
 <div class="location">
+  <%= @wedding.location %>
   <div class="map-canvas"></div>
 </div>
+
+
 
 
 <% unless @wedding.user.nil? %>
