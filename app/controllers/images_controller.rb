@@ -33,7 +33,7 @@ class ImagesController < ApplicationController
 
     image_details = image_params
     if params[:file]
-        response = Cloudinary::Uploader.upload params[:file]
+        response = Cloudinary::Uploader.upload params[:file], :flags => :keep_iptc, :angle => :exif
         image_details["url"] = response["url"]
     end
     @wedding = Wedding.find params[:wedding_id]
@@ -59,7 +59,7 @@ class ImagesController < ApplicationController
     image_details = image_params
 
     if params[:file]
-        response = Cloudinary::Uploader.upload params[:file]
+        response = Cloudinary::Uploader.upload params[:file], :flags => :keep_iptc, :angle => :exif
         image_details["url"] = response["url"]
     end
 
