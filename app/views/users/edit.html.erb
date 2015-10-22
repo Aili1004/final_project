@@ -10,7 +10,6 @@
 	</ol>
 <% end %>
 
-
 <%= form_for @user do |f| %>
 	<div class="question">
 		<%= f.email_field :email %>
@@ -35,12 +34,7 @@
 		<%= f.label :password_confirmation %>
 		
 	</div>
-	
-	<!-- <div class="edit-user">
-		<%= f.submit %>
-	</div> -->
-	<button>Submit</button>
 
-	<!-- <%= link_to 'Back', root_path, class: 'btn-user-edit-back' %> -->
+	<button>Submit</button>
 <% end %>
 

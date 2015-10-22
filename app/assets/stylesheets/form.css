@@ -11,10 +11,6 @@
   -webkit-font-smoothing: antialiased;
 }
 
-/*html {
-  background-color: #ff4a56;
-}*/
-
 form {
   position: relative;
   display: inline-block;
@@ -31,6 +27,7 @@ form {
   -webkit-transform: translate(-50%, 0);
   transform: translate(-50%, 0);
 }
+
 form h1 {
   color: #ff4a56;
   font-weight: 100;
@@ -39,6 +36,7 @@ form h1 {
   margin-bottom: 35px;
   text-transform: uppercase;
 }
+
 form h3 {
   color: #ff4a56;
   font-family: 'Anton', sans-serif;
@@ -162,19 +160,4 @@ form .question input[type="password"]:valid ~ label {
   -webkit-transform: translate(5px, -35px) scale(0.6);
   transform: translate(5px, -35px) scale(0.6);
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

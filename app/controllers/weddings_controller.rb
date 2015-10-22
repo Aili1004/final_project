@@ -10,7 +10,6 @@ class WeddingsController < ApplicationController
   # GET /weddings/1
   # GET /weddings/1.json
   def show
-    # @guest_wedding = GuestWedding.find params[:id]
     @wedding = Wedding.find(params[:id])
     gon.address = @wedding.location
     gon.guests = []

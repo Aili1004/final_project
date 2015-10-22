@@ -42,7 +42,6 @@ var showGuestsList = function() {
 };
 
 
-
 var numberClickLocation = 1;
 var showLocation = function() {
 	numberClickLocation += 1;
@@ -64,12 +63,10 @@ var showGuests = function() {
 		$('#show-guests').show();
 		$('.guest-lists').show();
 		$('.new-weddings').html("Hide Guests");
-		// $('#show-guests').html("Hide Guests");
 	} else {
 		$('#show-guests').hide();
 		$('.guest-lists').hide();
 		$('.new-weddings').html("All Guests");
-		// $('#show-guests').html("All Guests");
 	}
 };
 

@@ -4,7 +4,6 @@
 
 <h5><%= @wedding.bride_name %> & <%= @wedding.groom_name %></h5>
 
-
 <% if @current_user.present? %>
   <% unless @wedding.user.nil? %>
     <% if @current_user.name == @wedding.user.name %>
@@ -21,11 +20,8 @@
 
 <br>
 
-
 <% @images.each do |image| %>
-
-  		<%= link_to(image_tag(image.url, class: "image-index"), wedding_image_path(@wedding, image)) %>
-
+  <%= link_to(image_tag(image.url, class: "image-index"), wedding_image_path(@wedding, image)) %>
 <% end %>
 
 

@@ -7,11 +7,9 @@
 <% if @current_user.present? %>
 	<% unless @wedding.user.nil? %>
 		<% if @current_user.name == @wedding.user.name %>
-
 			<%= link_to 'Edit', edit_wedding_image_path(@wedding, @image), class: 'large blue button radius' %>
 			<%= link_to 'Destroy', wedding_image_path(@wedding, @image), method: :delete, data: { confirm: 'Are you sure?' }, class: 'large blue button radius' %>
 			<%= link_to 'Back', wedding_images_path(@wedding), class: 'large blue button radius' %>
-
 		<% end %>
 	<% end %>
 

@@ -30,7 +30,6 @@ class ImagesController < ApplicationController
   # POST /images
   # POST /images.json
   def create
-
     image_details = image_params
     if params[:file]
         response = Cloudinary::Uploader.upload params[:file], :flags => :keep_iptc, :angle => :exif
@@ -55,7 +54,6 @@ class ImagesController < ApplicationController
   # PATCH/PUT /images/1
   # PATCH/PUT /images/1.json
   def update
-
     image_details = image_params
 
     if params[:file]
@@ -77,7 +75,6 @@ class ImagesController < ApplicationController
   # DELETE /images/1
   # DELETE /images/1.json
   def destroy
-    # @wedding = Wedding.find params[:wedding_id]
     @image.destroy
 
     respond_to do |format|

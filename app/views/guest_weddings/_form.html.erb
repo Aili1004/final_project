@@ -23,7 +23,6 @@
     <p><%= f.select :guest_id, Guest.all.map { |guest| [guest.full_name, guest.id] }, :include_blank => true, :placeholder => "Select the guest" %></p>
   </div>
 
-
   <div class="actions">
     <%= f.submit %>
   </div>
