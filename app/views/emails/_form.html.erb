@@ -12,21 +12,20 @@
   <% end %>
 
   <% unless @wedding.nil? %>
-    <strong>Couple: </strong><%= @wedding.bride_name %> & <%= @wedding.groom_name %>
+    <h1>Wedding Couple: </h1>
+    <h3><%= @wedding.bride_name %> & <%= @wedding.groom_name %></h3>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
+  <div class="question">
     <%= f.text_field :name %>
+    <%= f.label :name %><br>
   </div>   
 
-
-  <div class="field">
-    <%= f.label :email_address %><br>
+  <div class="question">
     <%= f.text_field :email_address %>
+    <%= f.label :email_address %><br>
+    
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <button>Submit</button>
 <% end %>

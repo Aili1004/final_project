@@ -9,33 +9,35 @@
 	</ol>
 <% end %>
 
-<div class="basic-grey">
-	<%= form_for @user do |f| %>
-		<p>
-			<%= f.label :email %>
-			<%= f.email_field :email %>
-		</p>
 
-		<p>
-			<%= f.label :name %>
-			<%= f.text_field :name %>
-		</p>
-
-		<p>
-			<%= f.label :password %>
-			<%= f.password_field :password %>
-		</p>
-
-		<p>
-			<%= f.label :password_confirmation %>
-			<%= f.password_field :password_confirmation %>
-		</p>
+<%= form_for @user do |f| %>
+	<div class="question">
+		<%= f.email_field :email, required: true  %>
+		<%= f.label :email%>
 		
-		<div class="user-signup">
-			<%= f.submit %>
-		</div>
-	<% end %>
-</div>
+	</div>
+
+	<div class="question">
+		<%= f.text_field :name, required: true  %>
+		<%= f.label :name %>
+		
+	</div>
+
+	<div class="question">
+		<%= f.password_field :password, required: true  %>
+		<%= f.label :password %>
+		
+	</div>
+
+	<div class="question">
+		<%= f.password_field :password_confirmation, required: true  %>
+		<%= f.label :password_confirmation %>
+		
+	</div>
+
+	<button>Sign Up</button>
+<% end %>
+
 
 
 

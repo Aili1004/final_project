@@ -10,6 +10,9 @@
     <% if @current_user.name == @wedding.user.name %>
     	<%= link_to 'Back', wedding_path(@wedding), class: 'btn-image-index-back'  %>
 		<%= link_to 'New Image', new_wedding_image_path(@wedding), class: 'btn-image-index' %>
+    
+	 <% else %>
+		<p><%= link_to 'Back', wedding_path(@wedding), class: 'btn-image-index-back' %></p>
     <% end %>
   <% end %>
  <% else %>

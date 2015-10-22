@@ -12,36 +12,35 @@
   <% end %>
 
   <% unless @wedding.nil? %>
-    <h5>Wedding attending: </h5>
-    <%= @wedding.bride_name %> & <%= @wedding.groom_name %>
+    <h1>Wedding attending: </h1>
+    <h3><%= @wedding.bride_name %> & <%= @wedding.groom_name %></h3>
   <% end %>
 
-  <div class="field">
+  <div class="question">
+    <%= f.text_field :full_name, required: true %>
     <%= f.label :full_name %><br>
-    <%= f.text_area :full_name %>
   </div>
   
-  <div class="field">
+  <div class="question">
+    <%= f.text_field :relationship, required: true %>
     <%= f.label :relationship %><br>
-    <%= f.text_area :relationship, :placeholder => "e.g. Family" %>
   </div>
-  <div class="field">
+  <div class="question">
+    <%= f.text_field :greeting, required: true %>
     <%= f.label :greeting %><br>
-    <%= f.text_area :greeting %>
-  </div>
-  <div class="field">
-    <%= f.label :is_attending %><br>
-    <%= f.check_box :is_attending %>
   </div>
 
-  <div class="field">
-    <!-- <%= f.label :number_people %> -->
-    <label>How many extra people would you like to bring?</label>
-    <br>
-    <%= f.text_field :number_people %>
+  <div class="question">
+    <%= f.check_box :is_attending%>
+    <%= f.label :is_attending %><br>
+  </div>
+
+
+  <div class="question">
+    <%= f.text_field :number_people, required: true %>
+    <label>Number of extra people</label>
   </div>  
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <button>Submit</button>
+
 <% end %>

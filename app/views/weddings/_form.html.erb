@@ -11,33 +11,36 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="question">
+    <%= f.text_field :bride_name %>
     <%= f.label :bride_name %><br>
-    <%= f.text_area :bride_name %>
+    
   </div>
-  <div class="field">
+  <div class="question">
+    <%= f.text_field :groom_name %>
     <%= f.label :groom_name %><br>
-    <%= f.text_area :groom_name %>
+    
   </div>
-  <div class="field">
+  <div class="question">
+    <%= f.text_field :love_story %>
     <%= f.label :love_story %><br>
-    <%= f.text_area :love_story %>
+    
   </div>
-  <div class="field">
-    <%= f.label :date %><br>
+  <div class="question">
     <%= f.date_select :date %>
+    <%= f.label :date %><br>
+    
   </div>
-  <div class="field">
+  <div class="question">
+    <%= f.text_field :location %>
     <%= f.label :location %><br>
-    <%= f.text_area :location %>
+    
   </div>
   
-  <div class="field">
+  <div class="question">
       <label>User:</label>
       <%= f.select :user_id, User.all.map { |user| [user.name, user.id] }, :include_blank => true, :placeholder => "Select the user" %>
   </div>
 
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  <button>Submit</button>
 <% end %>

@@ -10,32 +10,37 @@
 	</ol>
 <% end %>
 
-<div class="basic-grey">
-	<%= form_for @user do |f| %>
-		<p>
-			<%= f.label :email %>
-			<%= f.email_field :email %>
-		</p>
+
+<%= form_for @user do |f| %>
+	<div class="question">
+		<%= f.email_field :email %>
+		<%= f.label :email %>
 		
-		<p>
-			<%= f.label :name %>
-			<%= f.text_field :name %>
-		</p>
-
-		<p>
-			<%= f.label :password %>
-			<%= f.password_field :password %>
-		</p>
-
-		<p>
-			<%= f.label :password_confirmation %>
-			<%= f.password_field :password_confirmation %>
-		</p>
+	</div>
+	
+	<div class="question">
+		<%= f.text_field :name %>
+		<%= f.label :name %>
 		
-		<div class="edit-user">
-			<%= f.submit %>
-		</div>
+	</div>
 
-	<%= link_to 'Back', root_path, class: 'btn-user-edit-back' %>
-	<% end %>
-</div>
+	<div class="question">
+		<%= f.password_field :password %>
+		<%= f.label :password %>
+		
+	</div>
+
+	<div class="question">
+		<%= f.password_field :password_confirmation %>
+		<%= f.label :password_confirmation %>
+		
+	</div>
+	
+	<!-- <div class="edit-user">
+		<%= f.submit %>
+	</div> -->
+	<button>Submit</button>
+
+	<!-- <%= link_to 'Back', root_path, class: 'btn-user-edit-back' %> -->
+<% end %>
+
